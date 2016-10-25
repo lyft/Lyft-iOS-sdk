@@ -80,6 +80,13 @@ class RideTypesViewController: UITableViewController {
         LyftAPI.rideTypes(at: position) { [weak self] result in
             self?.rideTypes = result.value
             self?.tableView.reloadData()
+
+            if let error = result.error {
+                let controller = UIAlertController(title: "Error fetching ride types", message: error.message,
+                                                   preferredStyle: .alert)
+                controller.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self?.present(controller, animated: true, completion: nil)
+            }
         }
 
         LyftAPI.ETAs(to: position) { [weak self] result in
@@ -113,6 +120,7 @@ extension RideTypesViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         let controller = UIAlertController(title: "Error fetching location", message: nil,
                                            preferredStyle: .alert)
+        controller.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(controller, animated: true, completion: nil)
     }
 }
