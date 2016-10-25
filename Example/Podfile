@@ -1,0 +1,10 @@
+use_frameworks!
+
+target 'LyftSDK_Example' do
+  pod 'LyftSDK', 		:path => '../'
+  
+  target 'LyftSDK_Tests' do
+    inherit! :search_paths
+    pod "OHHTTPStubs"
+  end
+end

@@ -1,0 +1,33 @@
+PODS:
+  - LyftSDK (0.0.1):
+    - LyftSDK/Core (= 0.0.1)
+  - LyftSDK/Core (0.0.1)
+  - OHHTTPStubs (5.2.1):
+    - OHHTTPStubs/Default (= 5.2.1)
+  - OHHTTPStubs/Core (5.2.1)
+  - OHHTTPStubs/Default (5.2.1):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (5.2.1):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (5.2.1):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (5.2.1)
+
+DEPENDENCIES:
+  - LyftSDK (from `../`)
+  - OHHTTPStubs
+
+EXTERNAL SOURCES:
+  LyftSDK:
+    :path: ../
+
+SPEC CHECKSUMS:
+  LyftSDK: bc85ab344243158c7b45967a8ba771acc3161422
+  OHHTTPStubs: 3a42f25c00563b71355ac73112ba2324e9e6cef4
+
+PODFILE CHECKSUM: 9ba4e26754fb7c0714263aaa9a831f1d0eeaa91e
+
+COCOAPODS: 1.1.0.rc.3

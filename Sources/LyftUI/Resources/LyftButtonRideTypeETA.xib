@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11535.1" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LyftButton" customModule="LyftSDK" customModuleProvider="target">
+            <connections>
+                <outlet property="button" destination="iWP-TL-Cqt" id="qdB-Mq-Vuo"/>
+                <outlet property="logo" destination="f6S-7t-OMb" id="dQt-zm-3w4"/>
+                <outlet property="mainMessage" destination="3HK-BJ-dZB" id="3eo-Xe-lW7"/>
+                <outlet property="rideMessage" destination="NzA-ar-GhA" id="gJ0-Qv-ogd"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="260" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWP-TL-Cqt" customClass="Button" customModule="LyftSDK" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="260" height="50"/>
+                    <color key="backgroundColor" red="0.20784313725490194" green="0.13725490196078433" blue="0.51764705882352935" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="handleClick" destination="-1" eventType="touchUpInside" id="NOl-0m-g7H"/>
+                    </connections>
+                </button>
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TpM-zH-2cK">
+                    <rect key="frame" x="58" y="8" width="144.5" height="34"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lyft Logo - White" translatesAutoresizingMaskIntoConstraints="NO" id="f6S-7t-OMb">
+                            <rect key="frame" x="0.0" y="1" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="AVZ-bK-SM2"/>
+                                <constraint firstAttribute="height" constant="32" id="V4D-hM-Gzy"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get a ride" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HK-BJ-dZB">
+                            <rect key="frame" x="40" y="0.0" width="104.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Lyft Plus in 4 min&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzA-ar-GhA">
+                            <rect key="frame" x="40" y="20.5" width="104.5" height="13.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="3HK-BJ-dZB" secondAttribute="trailing" id="9Jj-Cz-8Hm"/>
+                        <constraint firstAttribute="bottom" secondItem="NzA-ar-GhA" secondAttribute="bottom" id="BN8-U0-ErD"/>
+                        <constraint firstItem="3HK-BJ-dZB" firstAttribute="top" secondItem="TpM-zH-2cK" secondAttribute="top" id="Mhf-7T-WpN"/>
+                        <constraint firstItem="NzA-ar-GhA" firstAttribute="top" secondItem="3HK-BJ-dZB" secondAttribute="bottom" id="Xzi-TU-tsD"/>
+                        <constraint firstItem="3HK-BJ-dZB" firstAttribute="leading" secondItem="f6S-7t-OMb" secondAttribute="trailing" constant="8" id="d1b-FK-VgS"/>
+                        <constraint firstItem="f6S-7t-OMb" firstAttribute="leading" secondItem="TpM-zH-2cK" secondAttribute="leading" id="mrx-GX-JXU"/>
+                        <constraint firstAttribute="trailing" secondItem="NzA-ar-GhA" secondAttribute="trailing" id="tHB-cZ-pj6"/>
+                        <constraint firstItem="f6S-7t-OMb" firstAttribute="centerY" secondItem="TpM-zH-2cK" secondAttribute="centerY" id="uyJ-vY-8EJ"/>
+                        <constraint firstItem="NzA-ar-GhA" firstAttribute="leading" secondItem="3HK-BJ-dZB" secondAttribute="leading" id="xwe-lb-js1"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="iWP-TL-Cqt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FPD-YP-naY"/>
+                <constraint firstAttribute="bottom" secondItem="iWP-TL-Cqt" secondAttribute="bottom" id="Fc5-Jd-4CM"/>
+                <constraint firstItem="TpM-zH-2cK" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="GX8-b8-3k4"/>
+                <constraint firstItem="TpM-zH-2cK" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Hyf-si-uN5"/>
+                <constraint firstAttribute="trailing" secondItem="iWP-TL-Cqt" secondAttribute="trailing" id="TdX-Rl-fF0"/>
+                <constraint firstItem="iWP-TL-Cqt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="x0U-6E-xUg"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Lyft Logo - White" width="32" height="32"/>
+    </resources>
+</document>

@@ -1,0 +1,49 @@
+{
+  "ride_types": [
+    {
+      "display_name": "Lyft Line",
+      "ride_type": "lyft_line",
+      "image_url": "https://s3.amazonaws.com/api.lyft.com/assets/car_standard.png",
+      "pricing_details": {
+        "base_charge": 200,
+        "cost_per_mile": 115,
+        "cost_per_minute": 23,
+        "cost_minimum": 475,
+        "trust_and_service": 155,
+        "currency": "USD",
+        "cancel_penalty_amount": 500
+      },
+      "seats": 2
+    },
+    {
+      "display_name": "Lyft",
+      "ride_type": "lyft",
+      "image_url": "https://s3.amazonaws.com/api.lyft.com/assets/car_standard.png",
+      "pricing_details": {
+        "base_charge": 200,
+        "cost_per_mile": 115,
+        "cost_per_minute": 23,
+        "cost_minimum": 500,
+        "trust_and_service": 155,
+        "currency": "USD",
+        "cancel_penalty_amount": 500
+      },
+      "seats": 4
+    },
+    {
+      "display_name": "Lyft Plus",
+      "ride_type": "lyft_plus",
+      "image_url": "https://s3.amazonaws.com/api.lyft.com/assets/car_plus.png",
+      "pricing_details": {
+        "base_charge": 300,
+        "cost_per_mile": 200,
+        "cost_per_minute": 30,
+        "cost_minimum": 700,
+        "trust_and_service": 155,
+        "currency": "USD",
+        "cancel_penalty_amount": 500
+      },
+      "seats": 6
+    }
+  ]
+}

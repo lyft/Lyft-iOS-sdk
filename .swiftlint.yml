@@ -1,0 +1,27 @@
+disabled_rules:
+  - force_cast
+  - function_body_length
+  - function_parameter_count
+  - opening_brace
+  - type_name
+  - variable_name
+opt_in_rules:
+  - conditional_returns_on_newline
+  - redundant_nil_coalesing
+line_length:
+  - 110
+type_body_length:
+  - 350
+excluded:
+  - Example/Pods
+
+custom_rules:
+  extra_newlines_braces:
+    name: "Extra newlines before closing braces"
+    regex: "\}\n\n\s*\}$"
+  closure_arg_parens:
+    name: "Closure argument no parens"
+    regex: "\{\s*\([^:]+\)\s*in"
+  class_func:
+    name: "class func usage"
+    regex: "^\s*class\s+func\s+"

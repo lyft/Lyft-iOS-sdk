@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8V6-UW-VVv">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="wqU-fF-VFp">
+            <objects>
+                <navigationController id="8V6-UW-VVv" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="T6F-HV-AMh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="opU-z9-fdL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oKp-lt-L92" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-660" y="139"/>
+        </scene>
+        <!--LyftSDK Example-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="LyftSDK_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AcN-f4-hus" customClass="LyftButton" customModule="LyftSDK">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="25p-6X-fLe"/>
+                                    <constraint firstAttribute="width" constant="260" id="e3y-dY-yp5"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uid-4u-WuC">
+                                <color key="backgroundColor" red="0.74901962280273438" green="0.78039216995239258" blue="0.85098040103912354" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="ATa-dO-spJ"/>
+                                </constraints>
+                                <state key="normal" title="View Ride Types &gt;">
+                                    <color key="titleColor" red="0.27843138575553894" green="0.29803922772407532" blue="0.38431373238563538" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="lLE-HS-9zY" kind="show" id="dge-Od-RSe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079015731812" green="0.91372549533843994" blue="0.91372549533843994" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="uid-4u-WuC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="2O9-IZ-bx3"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="uid-4u-WuC" secondAttribute="bottom" id="8Z8-M5-WJE"/>
+                            <constraint firstItem="AcN-f4-hus" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="doA-Il-a2r"/>
+                            <constraint firstItem="AcN-f4-hus" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="qgo-Kf-bfF"/>
+                            <constraint firstAttribute="trailing" secondItem="uid-4u-WuC" secondAttribute="trailing" id="vWC-Pn-B2o"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="LyftSDK Example" id="p9x-FV-ORu"/>
+                    <connections>
+                        <outlet property="sampleLyftButton" destination="AcN-f4-hus" id="hsX-EI-ZCy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="164" y="139"/>
+        </scene>
+        <!--Ride Types-->
+        <scene sceneID="6vt-SX-iMN">
+            <objects>
+                <tableViewController title="Ride Types" id="lLE-HS-9zY" customClass="RideTypesViewController" customModule="LyftSDK_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="28" sectionFooterHeight="28" id="vet-uB-Pue">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ride_type" id="u4z-ZE-eh8" customClass="RideTypeCell" customModule="LyftSDK_Example" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="72"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u4z-ZE-eh8" id="2JG-eh-uOP">
+                                    <frame key="frameInset" width="375" height="71"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="chL-yz-6Sq">
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="chL-yz-6Sq" secondAttribute="height" multiplier="1:1" id="iYF-6S-OnX"/>
+                                            </constraints>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffY-HY-Y13">
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Seats 4&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhd-Y6-4wh">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Name&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWc-wC-cDc">
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="&lt;2 min&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9NY-4G-gPC">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="rhd-Y6-4wh" secondAttribute="bottom" id="6oc-mV-HhQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="9NY-4G-gPC" secondAttribute="trailing" id="8Y9-GY-Vz7"/>
+                                                <constraint firstItem="KWc-wC-cDc" firstAttribute="leading" secondItem="ffY-HY-Y13" secondAttribute="leading" id="9x4-Xk-Xjy"/>
+                                                <constraint firstItem="rhd-Y6-4wh" firstAttribute="top" secondItem="KWc-wC-cDc" secondAttribute="bottom" constant="1" id="EcA-os-8cX"/>
+                                                <constraint firstItem="9NY-4G-gPC" firstAttribute="leading" secondItem="KWc-wC-cDc" secondAttribute="trailing" constant="8" id="IEo-bb-vRr"/>
+                                                <constraint firstItem="rhd-Y6-4wh" firstAttribute="leading" secondItem="KWc-wC-cDc" secondAttribute="leading" id="LEY-iZ-FLf"/>
+                                                <constraint firstItem="KWc-wC-cDc" firstAttribute="top" secondItem="ffY-HY-Y13" secondAttribute="top" id="Zrv-WE-k5K"/>
+                                                <constraint firstItem="9NY-4G-gPC" firstAttribute="centerY" secondItem="ffY-HY-Y13" secondAttribute="centerY" id="eRh-c7-cK8"/>
+                                                <constraint firstItem="rhd-Y6-4wh" firstAttribute="trailing" secondItem="KWc-wC-cDc" secondAttribute="trailing" id="qBp-97-t7z"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ffY-HY-Y13" firstAttribute="centerY" secondItem="chL-yz-6Sq" secondAttribute="centerY" id="632-lU-wa2"/>
+                                        <constraint firstAttribute="trailing" secondItem="ffY-HY-Y13" secondAttribute="trailing" constant="16" id="9o1-fd-lhk"/>
+                                        <constraint firstItem="ffY-HY-Y13" firstAttribute="leading" secondItem="chL-yz-6Sq" secondAttribute="trailing" constant="8" id="XQ2-cw-Po2"/>
+                                        <constraint firstItem="chL-yz-6Sq" firstAttribute="top" secondItem="2JG-eh-uOP" secondAttribute="top" id="hi6-MI-84C"/>
+                                        <constraint firstItem="chL-yz-6Sq" firstAttribute="leading" secondItem="2JG-eh-uOP" secondAttribute="leading" constant="8" id="qBA-y0-6n6"/>
+                                        <constraint firstItem="chL-yz-6Sq" firstAttribute="height" secondItem="2JG-eh-uOP" secondAttribute="height" id="zdX-aR-ZKE"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="etaLabel" destination="9NY-4G-gPC" id="UOh-Z1-6Ul"/>
+                                    <outlet property="iconImageView" destination="chL-yz-6Sq" id="ZSR-Py-3tT"/>
+                                    <outlet property="seatsLabel" destination="rhd-Y6-4wh" id="uG2-52-DXG"/>
+                                    <outlet property="titleLabel" destination="KWc-wC-cDc" id="a1Z-K7-XTi"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lLE-HS-9zY" id="mfJ-5m-O9E"/>
+                            <outlet property="delegate" destination="lLE-HS-9zY" id="VVc-IZ-TEb"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jFh-jr-0hf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1004" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+</document>

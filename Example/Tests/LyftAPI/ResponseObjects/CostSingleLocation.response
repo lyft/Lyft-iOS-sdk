@@ -1,0 +1,22 @@
+{
+  "cost_estimates": [
+    {
+      "ride_type": "lyft_plus",
+      "primetime_percentage": "25%",
+      "display_name": "Lyft Plus",
+      "is_valid_estimate": true
+    },
+    {
+      "ride_type": "lyft_line",
+      "primetime_percentage": "0%",
+      "display_name": "Lyft Line",
+      "is_valid_estimate": true
+    },
+    {
+      "ride_type": "lyft",
+      "primetime_percentage": "25%",
+      "display_name": "Lyft",
+      "is_valid_estimate": true
+    }
+  ]
+}
