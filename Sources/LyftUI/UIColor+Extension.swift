@@ -29,7 +29,7 @@ extension UIColor {
     /// - parameter height: The desired height for the image.
     ///
     /// - returns: A UIImage containing only the instance color.
-    func toImage(width width: CGFloat = 2, height: CGFloat = 2) -> UIImage {
+    func toImage(width: CGFloat = 2, height: CGFloat = 2) -> UIImage {
         let rect = CGRect(x: 0, y: 0, width: width, height: height)
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
 

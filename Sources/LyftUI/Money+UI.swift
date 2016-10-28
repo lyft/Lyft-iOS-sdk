@@ -7,7 +7,7 @@ extension Money {
     /// - parameter fractionDigits: The number of digits to include in the string
     ///
     /// - returns: A String representing the price.
-    func formattedPrice(fractionDigits fractionDigits: Int = 0) -> String {
+    func formattedPrice(fractionDigits: Int = 0) -> String {
         let formatter = NumberFormatter()
         formatter.maximumFractionDigits = fractionDigits
         formatter.numberStyle = .currency

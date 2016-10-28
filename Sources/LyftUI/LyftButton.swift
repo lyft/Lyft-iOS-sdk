@@ -60,7 +60,7 @@ public class LyftButton: UIView {
         self.init(frame: CGRect(origin: CGPoint.zero, size: LyftButtonPreferredSize))
     }
 
-    public override required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
 
