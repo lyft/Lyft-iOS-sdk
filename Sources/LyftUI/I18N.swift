@@ -1,3 +1,5 @@
+import Foundation
+
 private class BundleIdentifyingClass { }
 
 private func __(_ key: String) -> String {

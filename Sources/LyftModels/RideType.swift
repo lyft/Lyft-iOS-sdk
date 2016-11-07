@@ -1,3 +1,5 @@
+import Foundation
+
 /// The details of a ride type offered by the Lyft platform
 public struct RideType {
     /// The unique ride type key

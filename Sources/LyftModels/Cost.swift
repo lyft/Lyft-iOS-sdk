@@ -1,3 +1,5 @@
+import Foundation
+
 /// Cost and detail estimations for a pickup and destination
 public struct RideCostEstimate {
     /// Maximum estimated cost

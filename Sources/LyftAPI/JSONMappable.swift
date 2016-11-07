@@ -1,3 +1,5 @@
+import Foundation
+
 /// Represents an object that can be created from a json object
 protocol JSONMappable {
 
@@ -13,11 +15,11 @@ protocol JSONMappable {
     /// - parameter json:   The untyped json object to initialize this object with
     ///
     /// - returns:  An instance of this object if one can be created, or nil otherwise
-    init?(json: Any)
+    init?(json: Any?)
 }
 
 extension JSONMappable {
-    init?(json: Any) {
+    init?(json: Any?) {
         if let json = json as? NSDictionary {
             self.init(json: json)
         } else {
@@ -33,7 +35,7 @@ extension Array where Element: JSONMappable {
     /// - parameter json:   The json object representing the array of mappable items
     ///
     /// - returns:  An array of mapped items if one can be created, or nil otherwise
-    init?(json: Any) {
+    init?(json: Any?) {
         if let json = json as? [NSDictionary], json.count > 0 {
             self = json.flatMap { Element(json: $0) }
         } else {
