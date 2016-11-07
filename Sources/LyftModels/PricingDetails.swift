@@ -1,3 +1,5 @@
+import Foundation
+
 /// Pricing information related to a ride type
 public struct PricingDetails {
     /// The initial charge for a ride. This is the fee applied before ride specific costs

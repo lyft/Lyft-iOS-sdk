@@ -1,3 +1,5 @@
+import Foundation
+
 /// Represents the estimated time in seconds it will take for the nearest driver to reach the specified
 /// location for a given ride type
 public struct ETA {

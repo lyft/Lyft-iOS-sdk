@@ -1,5 +1,6 @@
 import Foundation
 import CoreLocation
+import UIKit
 
 /// Collection of deep links into the main Lyft application
 public struct LyftDeepLink {
@@ -55,6 +56,7 @@ public struct LyftDeepLink {
         }
     }
 
+    @available(iOS 10.0, *)
     private static func launchAppStore() {
         let signUp = LyftConfiguration.signUpIdentifier
         let id = LyftConfiguration.developer?.clientId ?? "unknown"
@@ -62,7 +64,7 @@ public struct LyftDeepLink {
         let version = infoDictionary?["CFBundleShortVersionString"] as? String ?? "?.?.?"
         let url = "https://www.lyft.com/signup/\(signUp)?clientId=\(id)&sdkName=iOS&sdkVersion=\(version)"
         if let signUpUrl = URL(string: url) {
-            UIApplication.shared.openURL(signUpUrl)
+            UIApplication.shared.open(signUpUrl, options: [:], completionHandler: nil)
         }
     }
 }

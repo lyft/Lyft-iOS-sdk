@@ -46,6 +46,18 @@ $ pod install
 pod 'LyftSDK/API'
 ```
 
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a simple, decentralized dependency manager for Cocoa. To import this SDK, add this to your Cartfile:
+
+```
+github "lyft/Lyft-iOS-sdk"
+```
+
+### Integrate without dependency manager
+
+Drag the LyftSDK.xcodeproj project into your project's Project Navigator. In your project's Build Target, click on the General tab and then under Embedded Binaries click the + button. Select the LyftSDK.framework under your project.
+
 ## Usage
 
 ### SDK Configuration

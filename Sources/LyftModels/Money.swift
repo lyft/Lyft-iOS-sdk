@@ -1,3 +1,5 @@
+import Foundation
+
 /// Represents an amount of money with its corresponding currency code
 public struct Money {
     /// The amount of money represented. Based on the currencyCode used

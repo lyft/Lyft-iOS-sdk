@@ -1,3 +1,5 @@
+import Foundation
+
 private let kFormatErrorRepresentation = "ERR"
 
 extension Money {

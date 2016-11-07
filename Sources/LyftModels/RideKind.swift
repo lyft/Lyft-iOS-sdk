@@ -18,7 +18,7 @@ public struct RideKind: RawRepresentable, Hashable {
     /// - parameter object: An untyped object likely from a json server response
     ///
     /// - returns:  A RideKind if one can be created, or nil
-    init?(object: Any) {
+    init?(object: Any?) {
         if let rawValue = object as? String {
             self = RideKind(rawValue: rawValue)
         } else {

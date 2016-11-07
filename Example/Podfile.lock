@@ -1,7 +1,7 @@
 PODS:
-  - LyftSDK (1.0.2):
-    - LyftSDK/Core (= 1.0.2)
-  - LyftSDK/Core (1.0.2)
+  - LyftSDK (1.0.3):
+    - LyftSDK/Core (= 1.0.3)
+  - LyftSDK/Core (1.0.3)
   - OHHTTPStubs (5.2.1):
     - OHHTTPStubs/Default (= 5.2.1)
   - OHHTTPStubs/Core (5.2.1)
@@ -25,9 +25,9 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  LyftSDK: 2dbb4a96fdbf26b6bdd2b14fd4f41509bf472942
+  LyftSDK: 36cb780cacc423d36d54ea06649e07337409c5b8
   OHHTTPStubs: 3a42f25c00563b71355ac73112ba2324e9e6cef4
 
 PODFILE CHECKSUM: 9ba4e26754fb7c0714263aaa9a831f1d0eeaa91e
 
-COCOAPODS: 1.1.0.rc.3
+COCOAPODS: 1.1.1
