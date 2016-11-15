@@ -55,6 +55,9 @@ public class LyftButton: UIView {
         didSet { self.setupStyle() }
     }
 
+    /// The deep link behavior for this button
+    public var deepLinkBehavior: LyftDeepLinkBehavior = .native
+
     /// Initializes a LyftButton with its preferred size
     convenience public init() {
         self.init(frame: CGRect(origin: CGPoint.zero, size: LyftButtonPreferredSize))
@@ -91,8 +94,10 @@ public class LyftButton: UIView {
     public func configure(rideKind: RideKind = .Standard, pickup: CLLocationCoordinate2D? = nil,
                           destination: CLLocationCoordinate2D? = nil)
     {
-        self.pressUpAction = {
-            LyftDeepLink.requestRide(kind: rideKind, from: pickup, to: destination)
+        self.pressUpAction = { [weak self] in
+            if let behavior = self?.deepLinkBehavior {
+                LyftDeepLink.requestRide(using: behavior, kind: rideKind, from: pickup, to: destination)
+            }
         }
 
         guard let pickup = pickup else {

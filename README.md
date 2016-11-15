@@ -87,6 +87,16 @@ lyftButton.configure(pickup: pickup, destination: destination)
 #### Ride types
 Lyft is growing very quickly and is currently available in [these cities](https://www.lyft.com/cities). Please keep in mind that some ride types (such as Lyft Line) are not yet available in all Lyft cities. If you set the ride type of the button  and it happens to be unavailable, the button will default to the Lyft Classic ride type. You can utilize the `LyftAPI.rideTypes(at:completion:)` wrapper to get a list of the available ride types in an area.
 
+#### Deep link behavior
+When a user taps on the Lyft Button, the default behavior is to deep link into the native Lyft app with the configuration information you have provided.
+
+However, if you would like to create a ride request on Lyft using Lyft's mobile web experience, you can specify the button's `deepLinkBehavior` as follows:
+```swift
+lyftButton.deepLinkBehavior = .web
+```
+
+This is preferable if you do not want the user to leave your app when making a ride request. Also, it does not require the user has Lyft installed.
+
 #### Button styles
 To specify the button style, use `enum LyftButtonStyle`
 ```swift
@@ -116,6 +126,8 @@ let pickup = CLLocationCoordinate2D(latitude: 37.7833, longitude: -122.4167)
 let destination = CLLocationCoordinate2D(latitude: 37.7794703, longitude: -122.4233223)
 LyftDeepLink.requestRide(kind: .Standard, from: pickup, to: destination)
 ```
+
+Note that you can specify a LyftDeepLinkBehavior in this request, to decide between deep linking to the native lyft app or launching Lyft's mobile web experience within your own app.
 
 ## Support
 
