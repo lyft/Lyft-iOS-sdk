@@ -37,7 +37,7 @@ public struct LyftDeepLink {
                                    couponCode: String? = nil)
     {
         let action: String
-        var parameters = [String: String]()
+        var parameters = [String: Any]()
         parameters["partner"] = LyftConfiguration.developer?.clientId
         parameters["credits"] = couponCode
 
@@ -45,15 +45,10 @@ public struct LyftDeepLink {
             case .native:
                 action = "ridetype"
                 parameters["id"] = kind.rawValue
-                if let pickup = pickup {
-                    parameters["pickup[latitude]"] = String(pickup.latitude)
-                    parameters["pickup[longitude]"] = String(pickup.longitude)
-                }
-
-                if let destination = destination {
-                    parameters["destination[latitude]"] = String(destination.latitude)
-                    parameters["destination[longitude]"] = String(destination.longitude)
-                }
+                parameters["pickup[latitude]"] = pickup.map { $0.latitude }
+                parameters["pickup[longitude]"] = pickup.map { $0.longitude }
+                parameters["destination[latitude]"] = destination.map { $0.latitude }
+                parameters["destination[longitude]"] = destination.map { $0.longitude }
 
             case .web:
                 action = "request"
@@ -66,7 +61,7 @@ public struct LyftDeepLink {
     }
 
     private static func launch(using behavior: LyftDeepLinkBehavior, action: String,
-                               parameters: [String: String])
+                               parameters: [String: Any])
     {
         guard let baseUrl = URL(string: behavior.baseUrl + action) else {
             return
