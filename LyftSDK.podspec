@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name            = 'LyftSDK'
-  s.version         = '1.0.3'
+  s.version         = '1.0.4'
   s.summary         = 'The official Lyft iOS SDK.'
   s.homepage        = 'https://github.com/lyft/lyft-iOS-sdk'
   s.license         = { :type => 'Apache', :file => 'LICENSE' }
