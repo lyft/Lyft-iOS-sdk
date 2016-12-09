@@ -10,13 +10,13 @@ public enum LyftDeepLinkBehavior {
     case native
     case web
 
-    fileprivate var baseUrl: String {
+    fileprivate var baseUrl: URL? {
         switch self {
             case .native:
-                return "lyft://"
+                return URL(string: "lyft://")
 
             case .web:
-                return "https://ride.lyft.com/"
+                return URL(string: "https://ride.lyft.com/")
         }
     }
 }
@@ -63,11 +63,11 @@ public struct LyftDeepLink {
     private static func launch(using behavior: LyftDeepLinkBehavior, action: String,
                                parameters: [String: Any])
     {
-        guard let baseUrl = URL(string: behavior.baseUrl + action) else {
+        guard let originalUrl = behavior.baseUrl.flatMap({ URL(string: action, relativeTo: $0) }) else {
             return
         }
 
-        let request = lyftURLEncodedInURL(request: URLRequest(url: baseUrl), parameters: parameters).0
+        let request = lyftURLEncodedInURL(request: URLRequest(url: originalUrl), parameters: parameters).0
         guard let url = request.url else {
             return
         }
