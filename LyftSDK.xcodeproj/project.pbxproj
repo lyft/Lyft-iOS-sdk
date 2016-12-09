@@ -38,6 +38,7 @@
 		FB7CA7731DD1256800303FEB /* LyftButtonNone.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7CA7541DD1256800303FEB /* LyftButtonNone.xib */; };
 		FB7CA7741DD1256800303FEB /* LyftButtonRideTypeETA.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7CA7551DD1256800303FEB /* LyftButtonRideTypeETA.xib */; };
 		FB7CA7751DD1256800303FEB /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7CA7561DD1256800303FEB /* UIColor+Extension.swift */; };
+		FBE45A251DEE585300A701D8 /* Safari.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE45A241DEE585300A701D8 /* Safari.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		FB7CA7541DD1256800303FEB /* LyftButtonNone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LyftButtonNone.xib; sourceTree = "<group>"; };
 		FB7CA7551DD1256800303FEB /* LyftButtonRideTypeETA.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LyftButtonRideTypeETA.xib; sourceTree = "<group>"; };
 		FB7CA7561DD1256800303FEB /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		FBE45A241DEE585300A701D8 /* Safari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Safari.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 		FB7CA7471DD1256800303FEB /* LyftUI */ = {
 			isa = PBXGroup;
 			children = (
+				FBE45A241DEE585300A701D8 /* Safari.swift */,
 				FB7CA7481DD1256800303FEB /* Asset.swift */,
 				FB7CA7491DD1256800303FEB /* Button.swift */,
 				FB7CA74A1DD1256800303FEB /* I18N.swift */,
@@ -335,6 +338,7 @@
 				FB7CA7591DD1256800303FEB /* Bundle+Extension.swift in Sources */,
 				FB7CA7651DD1256800303FEB /* NearbyDriver.swift in Sources */,
 				FB7CA75A1DD1256800303FEB /* HTTPClient.swift in Sources */,
+				FBE45A251DEE585300A701D8 /* Safari.swift in Sources */,
 				FB7CA7631DD1256800303FEB /* ETA.swift in Sources */,
 				FB7CA76E1DD1256800303FEB /* LyftDeepLink.swift in Sources */,
 				FB7CA7681DD1256800303FEB /* RideType.swift in Sources */,
