@@ -130,7 +130,7 @@ final class HTTPClient {
 
         let info = Bundle(for: type(of: self)).infoDictionary
         let version = info?["CFBundleShortVersionString"] as? String ?? "Unknown"
-        request.setValue("User-Agent", forHTTPHeaderField: "lyft-mobile-sdk:ios::\(version)")
+        request.setValue("lyft-mobile-sdk:ios::\(version)", forHTTPHeaderField: "User-Agent")
 
         return lyftURLEncodedInURL(request: request, parameters: parameters).0
     }
