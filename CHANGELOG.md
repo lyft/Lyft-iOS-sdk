@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 `LyftSDK` adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.0.7](https://github.com/lyft/Lyft-iOS-sdk/releases/tag/1.0.6)
+
+- Updated for Swift 4
+
 ## [1.0.6](https://github.com/lyft/Lyft-iOS-sdk/releases/tag/1.0.6)
 
 - Fix deeplinking with parameters
