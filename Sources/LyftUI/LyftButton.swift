@@ -44,7 +44,7 @@ public class LyftButton: UIView {
     @IBOutlet private var price: UILabel?
 
     private var buttonStateView: UIView?
-    private var pressUpAction: ((Void) -> Void)?
+    private var pressUpAction: (() -> Void)?
 
     private var status: LyftButtonStatus = .noData {
         didSet { self.setupNib() }
