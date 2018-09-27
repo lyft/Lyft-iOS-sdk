@@ -37,7 +37,7 @@ extension Array where Element: JSONMappable {
     /// - returns:  An array of mapped items if one can be created, or nil otherwise
     init?(json: Any?) {
         if let json = json as? [NSDictionary], json.count > 0 {
-            self = json.flatMap { Element(json: $0) }
+            self = json.compactMap { Element(json: $0) }
         } else {
             return nil
         }

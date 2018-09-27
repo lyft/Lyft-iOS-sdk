@@ -80,7 +80,7 @@ public struct LyftDeepLink {
         let version = infoDictionary?["CFBundleShortVersionString"] as? String ?? "?.?.?"
         let url = "https://www.lyft.com/signup/\(signUp)?clientId=\(id)&sdkName=iOS&sdkVersion=\(version)"
         if let signUpUrl = URL(string: url) {
-            UIApplication.shared.open(signUpUrl, options: [:], completionHandler: nil)
+            UIApplication.shared.open(signUpUrl, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         }
     }
 }
@@ -94,4 +94,9 @@ fileprivate extension UIApplication {
         
         return topController
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

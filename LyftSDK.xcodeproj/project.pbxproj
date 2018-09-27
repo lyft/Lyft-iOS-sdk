@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FB7CA7211DD1252800303FEB /* LyftSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB7CA7171DD1252800303FEB /* LyftSDK.framework */; };
 		FB7CA7581DD1256800303FEB /* APIRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7CA7351DD1256800303FEB /* APIRoute.swift */; };
 		FB7CA7591DD1256800303FEB /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7CA7361DD1256800303FEB /* Bundle+Extension.swift */; };
 		FB7CA75A1DD1256800303FEB /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7CA7371DD1256800303FEB /* HTTPClient.swift */; };
@@ -41,19 +40,8 @@
 		FBE45A251DEE585300A701D8 /* Safari.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE45A241DEE585300A701D8 /* Safari.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		FB7CA7221DD1252800303FEB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FB7CA70E1DD1252800303FEB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FB7CA7161DD1252800303FEB;
-			remoteInfo = LyftSDK;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		FB7CA7171DD1252800303FEB /* LyftSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LyftSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB7CA7201DD1252800303FEB /* LyftSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LyftSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB7CA7321DD1256800303FEB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB7CA7351DD1256800303FEB /* APIRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRoute.swift; sourceTree = "<group>"; };
 		FB7CA7361DD1256800303FEB /* Bundle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
@@ -96,14 +84,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB7CA71D1DD1252800303FEB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FB7CA7211DD1252800303FEB /* LyftSDK.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -120,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				FB7CA7171DD1252800303FEB /* LyftSDK.framework */,
-				FB7CA7201DD1252800303FEB /* LyftSDKTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -234,24 +213,6 @@
 			productReference = FB7CA7171DD1252800303FEB /* LyftSDK.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		FB7CA71F1DD1252800303FEB /* LyftSDKTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FB7CA72E1DD1252800303FEB /* Build configuration list for PBXNativeTarget "LyftSDKTests" */;
-			buildPhases = (
-				FB7CA71C1DD1252800303FEB /* Sources */,
-				FB7CA71D1DD1252800303FEB /* Frameworks */,
-				FB7CA71E1DD1252800303FEB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FB7CA7231DD1252800303FEB /* PBXTargetDependency */,
-			);
-			name = LyftSDKTests;
-			productName = LyftSDKTests;
-			productReference = FB7CA7201DD1252800303FEB /* LyftSDKTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -259,16 +220,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Lyft;
 				TargetAttributes = {
 					FB7CA7161DD1252800303FEB = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
-					};
-					FB7CA71F1DD1252800303FEB = {
-						CreatedOnToolsVersion = 8.1;
-						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -285,7 +243,6 @@
 			projectRoot = "";
 			targets = (
 				FB7CA7161DD1252800303FEB /* LyftSDK */,
-				FB7CA71F1DD1252800303FEB /* LyftSDKTests */,
 			);
 		};
 /* End PBXProject section */
@@ -300,13 +257,6 @@
 				FB7CA7741DD1256800303FEB /* LyftButtonRideTypeETA.xib in Resources */,
 				FB7CA7731DD1256800303FEB /* LyftButtonNone.xib in Resources */,
 				FB7CA7701DD1256800303FEB /* Localizable.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FB7CA71E1DD1252800303FEB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,22 +296,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB7CA71C1DD1252800303FEB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FB7CA7231DD1252800303FEB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FB7CA7161DD1252800303FEB /* LyftSDK */;
-			targetProxy = FB7CA7221DD1252800303FEB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FB7CA7501DD1256800303FEB /* Localizable.strings */ = {
@@ -384,15 +319,24 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -419,6 +363,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-fembed-bitcode-marker";
+				"OTHER_CFLAGS[arch=*]" = "-fembed-bitcode-marker";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -437,15 +383,24 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -465,6 +420,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "-fembed-bitcode";
+				"OTHER_CFLAGS[arch=*]" = "-fembed-bitcode";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -477,6 +434,7 @@
 		FB7CA72C1DD1252800303FEB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BITCODE_GENERATION_MODE = marker;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -490,13 +448,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Lyft.LyftSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
 		FB7CA72D1DD1252800303FEB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BITCODE_GENERATION_MODE = bitcode;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -510,31 +470,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Lyft.LyftSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0.1;
-			};
-			name = Release;
-		};
-		FB7CA72F1DD1252800303FEB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = LyftSDKTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Lyft.LyftSDKTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		FB7CA7301DD1252800303FEB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = LyftSDKTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Lyft.LyftSDKTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -555,15 +492,6 @@
 			buildConfigurations = (
 				FB7CA72C1DD1252800303FEB /* Debug */,
 				FB7CA72D1DD1252800303FEB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FB7CA72E1DD1252800303FEB /* Build configuration list for PBXNativeTarget "LyftSDKTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FB7CA72F1DD1252800303FEB /* Debug */,
-				FB7CA7301DD1252800303FEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
