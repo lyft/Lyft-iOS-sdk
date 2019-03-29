@@ -8,7 +8,6 @@ private func __(_ key: String) -> String {
 
 /// Struct for managing localizable strings
 struct I18N {
-
     /// Localizable strings related to the LyftButton
     struct LyftButton {
         static let RideETAFormat            = __("RIDE_ETA_FORMAT")

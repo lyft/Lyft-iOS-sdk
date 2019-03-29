@@ -14,7 +14,6 @@ public struct LyftAPI {
 }
 
 extension LyftAPI {
-
     /// Get the ETA estimates from a specific position by ride kind.
     ///
     /// - parameter position:   The pickup position to get ETAs to.
@@ -70,6 +69,7 @@ extension LyftAPI {
             "start_lat": pickup.latitude,
             "start_lng": pickup.longitude,
         ]
+
         parameters["end_lat"] = destination?.latitude
         parameters["end_lng"] = destination?.longitude
         parameters["ride_type"] = rideKind?.rawValue

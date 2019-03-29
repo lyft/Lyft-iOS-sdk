@@ -10,7 +10,6 @@ private struct Color {
 }
 
 extension UIColor {
-
     /// Creates an instance of UIColor based on an RGB value.
     ///
     /// - parameter rgbValue: The Integer representation of the RGB value: Example: 0xFF0000.

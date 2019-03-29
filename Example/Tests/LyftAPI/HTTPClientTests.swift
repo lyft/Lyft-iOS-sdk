@@ -4,7 +4,7 @@ import XCTest
 
 extension String: Routable {
     public var url: URL {
-        return URL(string: "https://test.com")!
+        return URL(staticString: "https://test.com")
     }
 
     public var extraHTTPHeaders: [String: String] {
@@ -13,18 +13,18 @@ extension String: Routable {
 }
 
 final class HTTPClientTests: XCTestCase {
-
     override func tearDown() {
+        super.tearDown()
         OHHTTPStubs.removeAllStubs()
     }
 
     func testSendingParametersUsingURLEncoding() {
         let expectation = self.expectation(description: "response closure is called")
 
-        OHHTTPStubs.stubRequests(passingTest: { _ in true }) { request in
+        OHHTTPStubs.stubRequests(passingTest: { _ in true }, withStubResponse: { request in
             XCTAssertEqual(request.url?.query, "foo=bar")
             return OHHTTPStubsResponse(data: Data(), statusCode: 200, headers: nil)
-        }
+        })
 
         HTTPClient().request(.get, "", parameters: ["foo": "bar"]) { _, type in
             XCTAssertEqual(type, .succeed)
@@ -36,9 +36,9 @@ final class HTTPClientTests: XCTestCase {
 
     func testRequestsThat404() {
         let expectation = self.expectation(description: "response closure is called")
-        OHHTTPStubs.stubRequests(passingTest: { _ in true }) { _ in
+        OHHTTPStubs.stubRequests(passingTest: { _ in true }, withStubResponse: { _ in
             return OHHTTPStubsResponse(data: Data(), statusCode: 404, headers: nil)
-        }
+        })
 
         HTTPClient().request(.get, "") { _, type in
             XCTAssertEqual(type, .notFound)

@@ -79,7 +79,6 @@ public enum ResponseType {
 
 /// Manages request sessions
 final class HTTPClient {
-
     private let session: URLSession
 
     /// Initializes a new instance of HTTPClient
@@ -105,7 +104,7 @@ final class HTTPClient {
                  completion: @escaping (Any?, ResponseType) -> Void)
     {
         let request = self.urlRequest(method: method, route: route, parameters: parameters)
-        let dataTask = self.session.dataTask(with: request) { data, response, error in
+        let dataTask = self.session.dataTask(with: request) { data, response, _ in
             let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 500
             let status = ResponseType(fromCode: statusCode)
 

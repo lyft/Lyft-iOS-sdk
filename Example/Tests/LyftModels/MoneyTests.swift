@@ -3,13 +3,11 @@ import XCTest
 
 private extension Money {
     init(amount: Decimal) {
-        self.amount = amount
-        self.currencyCode = "USD"
+        self.init(amount: amount, currencyCode: "USD")
     }
 }
 
 final class MoneyTests: XCTestCase {
-
     func testEquality() {
         XCTAssert(Money(amount: 5) == Money(amount: 5))
         XCTAssertFalse(Money(amount: 5) == Money(amount: 5, currencyCode: "JPY"))

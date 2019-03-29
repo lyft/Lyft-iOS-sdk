@@ -2,7 +2,6 @@
 import XCTest
 
 final class MoneyUITests: XCTestCase {
-
     func testItDisplaysDollarValue() {
         XCTAssertEqual(Money(amount: 5, currencyCode: "USD").formattedPrice(), "$5")
     }

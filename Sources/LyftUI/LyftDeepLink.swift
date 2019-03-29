@@ -1,5 +1,5 @@
-import Foundation
 import CoreLocation
+import Foundation
 import UIKit
 
 /// Designates the kind of deeplinking to perform
@@ -9,21 +9,20 @@ import UIKit
 public enum LyftDeepLinkBehavior {
     case native
     case web
-    
-    fileprivate var baseUrl: URL? {
+
+    fileprivate var baseUrl: URL {
         switch self {
         case .native:
-            return URL(string: "lyft://ridetype")
-            
+            return URL(staticString: "lyft://ridetype")
+
         case .web:
-            return URL(string: "https://ride.lyft.com/u")
+            return URL(staticString: "https://ride.lyft.com/u")
         }
     }
 }
 
 /// Collection of deep links into the main Lyft application
 public struct LyftDeepLink {
-    
     /// Prepares to request a ride with the given parameters
     ///
     /// - parameter behavior:       The deep linking mode to use for this deep link
@@ -44,17 +43,18 @@ public struct LyftDeepLink {
         parameters["pickup[longitude]"] = pickup.map { $0.longitude }
         parameters["destination[latitude]"] = destination.map { $0.latitude }
         parameters["destination[longitude]"] = destination.map { $0.longitude }
-        
+
         self.launch(using: behavior, parameters: parameters)
     }
-    
+
     private static func launch(using behavior: LyftDeepLinkBehavior, parameters: [String: Any])
     {
-        let request = lyftURLEncodedInURL(request: URLRequest(url: behavior.baseUrl!), parameters: parameters).0
+        let request = lyftURLEncodedInURL(request: URLRequest(url: behavior.baseUrl),
+                                          parameters: parameters).0
         guard let url = request.url else {
             return
         }
-        
+
         switch behavior {
         case .native:
             if #available(iOS 10.0, *) {
@@ -66,12 +66,12 @@ public struct LyftDeepLink {
             } else {
                 UIApplication.shared.openURL(url)
             }
-            
+
         case .web:
             Safari.openURL(url, from: UIApplication.shared.topViewController)
         }
     }
-    
+
     @available(iOS 10.0, *)
     private static func launchAppStore() {
         let signUp = LyftConfiguration.signUpIdentifier
@@ -85,13 +85,13 @@ public struct LyftDeepLink {
     }
 }
 
-fileprivate extension UIApplication {
-    fileprivate var topViewController: UIViewController? {
+private extension UIApplication {
+    var topViewController: UIViewController? {
         var topController = self.keyWindow?.rootViewController
         while let viewController = topController?.presentedViewController {
             topController = viewController
         }
-        
+
         return topController
     }
 }

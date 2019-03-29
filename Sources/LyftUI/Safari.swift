@@ -26,8 +26,8 @@ struct Safari {
 }
 
 @available(iOS 9.0, *)
-fileprivate extension SFSafariViewController {
-    fileprivate class func canOpenURL(_ url: URL) -> Bool {
+private extension SFSafariViewController {
+    static func canOpenURL(_ url: URL) -> Bool {
         return url.host != nil && (url.scheme == "http" || url.scheme == "https")
     }
 }

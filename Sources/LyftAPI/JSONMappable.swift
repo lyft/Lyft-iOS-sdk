@@ -2,7 +2,6 @@ import Foundation
 
 /// Represents an object that can be created from a json object
 protocol JSONMappable {
-
     /// Creates an instance from a dictionary
     ///
     /// - parameter json:   A NSDictionary of key object pairs originating from JSON
@@ -29,7 +28,6 @@ extension JSONMappable {
 }
 
 extension Array where Element: JSONMappable {
-
     /// Convenience initializer for creating an array of mappable items
     ///
     /// - parameter json:   The json object representing the array of mappable items
@@ -37,7 +35,7 @@ extension Array where Element: JSONMappable {
     /// - returns:  An array of mapped items if one can be created, or nil otherwise
     init?(json: Any?) {
         if let json = json as? [NSDictionary], json.count > 0 {
-            self = json.flatMap { Element(json: $0) }
+            self = json.compactMap { Element(json: $0) }
         } else {
             return nil
         }

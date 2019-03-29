@@ -1,11 +1,11 @@
-import UIKit
-import LyftSDK
 import CoreLocation
+import LyftSDK
+import os.log
+import UIKit
 
 private let kPresetPosition = CLLocationCoordinate2D(latitude: 37.7833, longitude: -122.4167)
 
 class RideTypesViewController: UITableViewController {
-
     private var rideTypes: [RideType]?
     private var ETAs: [ETA]?
     private var position: CLLocationCoordinate2D?
@@ -27,15 +27,12 @@ class RideTypesViewController: UITableViewController {
             return UITableViewCell()
         }
 
-        rideTypeCell.titleLabel.text = rideType.displayName
-        rideTypeCell.seatsLabel.text = "Seats \(rideType.numberOfSeats)"
-
-        let eta = self.ETAs?.filter { $0.rideKind == rideType.kind }.first
-        rideTypeCell.etaLabel.text = eta.map { "\($0.minutes) min" }
-
-        rideTypeCell.iconImageView.image = nil
-        let url = rideType.imageURL.flatMap { URL(string: $0) }
-        rideTypeCell.iconImageView.loadImage(from: url)
+        let eta = self.ETAs?.first { $0.rideKind == rideType.kind }
+        rideTypeCell.updateWith(
+            iconURL: rideType.imageURL.flatMap { URL(string: $0) },
+            title: rideType.displayName,
+            seatsText: "Seats \(rideType.numberOfSeats)",
+            etaText: eta.map { "\($0.minutes) min" })
 
         return cell
     }
@@ -57,21 +54,28 @@ class RideTypesViewController: UITableViewController {
 
     fileprivate func requestLocation() {
         switch CLLocationManager.authorizationStatus() {
-            case .authorizedAlways, .authorizedWhenInUse:
-                self.locationManager.requestLocation()
+        case .authorizedAlways, .authorizedWhenInUse:
+            self.locationManager.requestLocation()
 
-            case .denied, .restricted:
-                let message = "Go to settings to change access and find ride types in your area"
-                let controller = UIAlertController(title: "Location access restricted",
-                                                   message: message, preferredStyle: .alert)
-                let action = UIAlertAction(title: "Use pre-set location", style: .default) { [weak self] _ in
-                    self?.requestRideTypes(with: kPresetPosition)
-                }
-                controller.addAction(action)
-                self.present(controller, animated: true, completion: nil)
+        case .denied, .restricted:
+            let message = "Go to settings to change access and find ride types in your area"
+            let controller = UIAlertController(title: "Location access restricted",
+                                               message: message, preferredStyle: .alert)
+            let action = UIAlertAction(title: "Use pre-set location", style: .default) { [weak self] _ in
+                self?.requestRideTypes(with: kPresetPosition)
+            }
 
-            case .notDetermined:
-                self.locationManager.requestWhenInUseAuthorization()
+            controller.addAction(action)
+            self.present(controller, animated: true, completion: nil)
+
+        case .notDetermined:
+            self.locationManager.requestWhenInUseAuthorization()
+        @unknown default:
+            if #available(iOS 10.0, *) {
+                os_log("Switch is not exhaustive, please add missing cases.")
+            } else {
+                NSLog("Switch is not exhaustive, please add missing cases.")
+            }
         }
     }
 
@@ -99,14 +103,21 @@ class RideTypesViewController: UITableViewController {
 class RideTypeCell: UITableViewCell {
     static var reuseIdentifier = "ride_type"
 
-    @IBOutlet var iconImageView: UIImageView!
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var seatsLabel: UILabel!
-    @IBOutlet var etaLabel: UILabel!
+    @IBOutlet private var iconImageView: UIImageView!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var seatsLabel: UILabel!
+    @IBOutlet private var etaLabel: UILabel!
+
+    func updateWith(iconURL: URL?, title: String, seatsText: String, etaText: String?) {
+        self.iconImageView.image = nil
+        self.iconImageView.loadImage(from: iconURL)
+        self.titleLabel.text = title
+        self.seatsLabel.text = seatsText
+        self.etaLabel.text = etaText
+    }
 }
 
 extension RideTypesViewController: CLLocationManagerDelegate {
-
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         self.requestLocation()
     }
@@ -126,7 +137,6 @@ extension RideTypesViewController: CLLocationManagerDelegate {
 }
 
 private extension UIImageView {
-
     func loadImage(from url: URL?) {
         guard let url = url else {
             return
