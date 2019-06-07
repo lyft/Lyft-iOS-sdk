@@ -36,7 +36,6 @@ public struct Money {
 // MARK: - Operators overload
 
 extension Money: Comparable {
-
     public static func == (left: Money, right: Money) -> Bool {
         return left.amount == right.amount && left.currencyCode == right.currencyCode
     }

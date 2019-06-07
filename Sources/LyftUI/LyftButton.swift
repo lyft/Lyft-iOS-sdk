@@ -35,7 +35,6 @@ private enum LyftButtonStatus {
 /// To use this, create a UIView, and set the custom class to `LyftButton`
 @IBDesignable
 public class LyftButton: UIView {
-
     @IBOutlet private var button: Button!
     @IBOutlet private var logo: UIImageView!
     @IBOutlet private var mainMessage: UILabel!
@@ -44,7 +43,7 @@ public class LyftButton: UIView {
     @IBOutlet private var price: UILabel?
 
     private var buttonStateView: UIView?
-    private var pressUpAction: ((Void) -> Void)?
+    private var pressUpAction: (() -> Void)?
 
     private var status: LyftButtonStatus = .noData {
         didSet { self.setupNib() }
@@ -108,14 +107,14 @@ public class LyftButton: UIView {
         var cost: Cost?
 
         LyftAPI.ETAs(to: pickup) { [weak self] result in
-            eta = result.value?.filter { $0.rideKind == rideKind }.first ??
-                result.value?.filter { $0.rideKind == .Standard }.first
+            eta = result.value?.first { $0.rideKind == rideKind } ??
+                result.value?.first { $0.rideKind == .Standard }
             self?.configureLayout(cost: cost, eta: eta)
         }
 
         LyftAPI.costEstimates(from: pickup, to: destination) { [weak self] result in
-            cost = result.value?.filter { $0.rideKind == rideKind }.first ??
-                result.value?.filter { $0.rideKind == .Standard }.first
+            cost = result.value?.first { $0.rideKind == rideKind } ??
+                result.value?.first { $0.rideKind == .Standard }
             self?.configureLayout(cost: cost, eta: eta)
         }
     }

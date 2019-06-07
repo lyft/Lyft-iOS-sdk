@@ -1,10 +1,9 @@
 import CoreLocation
-import UIKit
 import LyftSDK
+import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var sampleLyftButton: LyftButton!
+    @IBOutlet private weak var sampleLyftButton: LyftButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()

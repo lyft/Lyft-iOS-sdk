@@ -1,27 +1,48 @@
 disabled_rules:
-  - force_cast
-  - function_body_length
-  - function_parameter_count
+  - identifier_name
   - opening_brace
-  - type_name
-  - variable_name
 opt_in_rules:
   - conditional_returns_on_newline
-  - redundant_nil_coalesing
+  - private_outlet
+  - sorted_imports
+trailing_comma:
+  mandatory_comma: true
 line_length:
   - 110
 type_body_length:
   - 350
+private_over_fileprivate:
+  validate_extensions: true
+deployment_target:
+  iOS_deployment_target: 8.0
 excluded:
   - Example/Pods
 
 custom_rules:
   extra_newlines_braces:
     name: "Extra newlines before closing braces"
-    regex: "\}\n\n\s*\}$"
+    regex: '\}\n\n\s*\}$'
   closure_arg_parens:
     name: "Closure argument no parens"
-    regex: "\{\s*\([^:]+\)\s*in"
+    regex: '\{\s*(?:\[[^\]]+\])\s*\([^:]+\)\s*in'
+  class_modifier:
+    name: "use static instead of class"
+    regex: '^ *(public|internal|fileprivate|private)? *class +(func|var|let) +'
   class_func:
     name: "class func usage"
-    regex: "^\s*class\s+func\s+"
+    regex: '^\s*class\s+func\s+'
+  closing_braces_without_whitespace:
+    name: "Single newline after closing brace"
+    regex: '^[ ]*\}\n[ ]*[^} \n\.\)#]'
+    match_kinds:
+      - identifier
+      - typeidentifier
+  closing_bracket_without_whitespace:
+    name: "Single newline after closing bracket"
+    regex: '^[ ]*\]\n[ ]*[^]} \n\.\)#]'
+  newline_after_brace:
+    name: "Opening braces shouldn't have empty lines under them"
+    regex: '\{\n\n'
+  newline_before_brace:
+    name: "Closing braces shouldn't have empty lines before them"
+    regex: '\n\n\}'

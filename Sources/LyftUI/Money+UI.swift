@@ -3,7 +3,6 @@ import Foundation
 private let kFormatErrorRepresentation = "ERR"
 
 extension Money {
-
     /// The price with the appropriate formatting for the current market.
     ///
     /// - parameter fractionDigits: The number of digits to include in the string
@@ -14,6 +13,6 @@ extension Money {
         formatter.maximumFractionDigits = fractionDigits
         formatter.numberStyle = .currency
         formatter.currencyCode = self.currencyCode
-        return formatter.string(from: self.amount as NSDecimalNumber) ?? kFormatErrorRepresentation
+        return formatter.string(from: NSDecimalNumber(decimal: self.amount)) ?? kFormatErrorRepresentation
     }
 }

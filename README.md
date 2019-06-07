@@ -131,7 +131,7 @@ Note that you can specify a LyftDeepLinkBehavior in this request, to decide betw
 
 ## Support
 
-If you're looking for help configuring or using the SDK, or if you have general questions related to our APIs, the Lyft Developer Platform team provides support through our [forum](https://developer.lyft.com/discuss) as well as on Stack Overflow (using the `lyft-api` tag)
+If you're looking for help configuring or using the SDK, or if you have general questions related to our APIs, the Lyft Developer Platform team provides support through Stack Overflow (using the `lyft-api` tag)
 
 ## Reporting security vulnerabilities
 

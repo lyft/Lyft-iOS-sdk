@@ -10,7 +10,6 @@ import UIKit
 /// ```
 /// ... and then you can get an instance of UIImage by doing: `Asset.Car.image()`.
 class Asset {
-
     /// The string value of the asset name
     var rawValue: String
 
@@ -26,8 +25,7 @@ class Asset {
     /// Creates an UIImage using the asset rawValue and given rendering mode.
     ///
     /// - returns: A new image object with the specified rendering mode.
-    func image() -> UIImage?
-    {
+    func image() -> UIImage? {
         return UIImage(named: self.rawValue, in: Bundle(for: type(of: self)), compatibleWith: nil )
     }
 }

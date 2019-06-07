@@ -2,7 +2,6 @@ import UIKit
 
 /// Button that exposes convenience methods for colors
 class Button: UIButton {
-
     /// Set the Button's highlightedColor from IB
     @IBInspectable var highlightedColor: UIColor? {
         didSet { self.updateStateColors() }

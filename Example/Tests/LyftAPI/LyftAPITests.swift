@@ -1,10 +1,9 @@
+import CoreLocation
 import LyftSDK
 import OHHTTPStubs
-import CoreLocation
 import XCTest
 
 final class LyftAPITests: XCTestCase {
-
     private func data(responseFileName: String) -> Data {
         let bundle = Bundle(for: type(of: self))
         let url = bundle.url(forResource: responseFileName, withExtension: "response")
@@ -12,10 +11,10 @@ final class LyftAPITests: XCTestCase {
     }
 
     private func stubRequest(responseFileName: String, statusCode: Int32 = 200) {
-        OHHTTPStubs.stubRequests(passingTest: { _ in true }) { _ in
+        OHHTTPStubs.stubRequests(passingTest: { _ in true }, withStubResponse: { _ in
             let data = self.data(responseFileName: responseFileName)
             return OHHTTPStubsResponse(data: data, statusCode: statusCode, headers: nil)
-        }
+        })
     }
 
     private func stubError() {
@@ -29,6 +28,7 @@ final class LyftAPITests: XCTestCase {
     }
 
     override func tearDown() {
+        super.tearDown()
         OHHTTPStubs.removeAllStubs()
     }
 
@@ -37,7 +37,7 @@ final class LyftAPITests: XCTestCase {
         self.stubRequest(responseFileName: "ETA")
 
         LyftAPI.ETAs(to: CLLocationCoordinate2D()) { result in
-            let eta = result.value?.filter({ $0.rideKind == .Line }).first
+            let eta = result.value?.first { $0.rideKind == .Line }
             XCTAssertEqual(eta?.displayName, "Lyft Line")
             XCTAssertEqual(eta?.seconds, 120)
             XCTAssertEqual(eta?.minutes, 2)
@@ -63,7 +63,7 @@ final class LyftAPITests: XCTestCase {
         self.stubRequest(responseFileName: "RideType")
 
         LyftAPI.rideTypes(at: CLLocationCoordinate2D()) { result in
-            let rideType = result.value?.filter({ $0.kind == .Plus }).first
+            let rideType = result.value?.first { $0.kind == .Plus }
             let pricing = rideType?.pricingDetails
 
             XCTAssertEqual(rideType?.imageURL, "https://s3.amazonaws.com/api.lyft.com/assets/car_plus.png")
@@ -99,7 +99,7 @@ final class LyftAPITests: XCTestCase {
         self.stubRequest(responseFileName: "CostSingleLocation")
 
         LyftAPI.costEstimates(from: CLLocationCoordinate2D()) { result in
-            let cost = result.value?.filter({ $0.rideKind == .Plus }).first
+            let cost = result.value?.first { $0.rideKind == .Plus }
             XCTAssertEqual(cost?.displayName, "Lyft Plus")
             XCTAssertEqual(cost?.primeTimePercentageText, "25%")
             XCTAssertNil(cost?.estimate)
@@ -112,9 +112,8 @@ final class LyftAPITests: XCTestCase {
         let expectation = self.expectation(description: "cost estimates request response")
         self.stubRequest(responseFileName: "Cost")
 
-        LyftAPI.costEstimates(from: CLLocationCoordinate2D(), to: CLLocationCoordinate2D())
-        { result in
-            let cost = result.value?.filter({ $0.rideKind == .Plus }).first
+        LyftAPI.costEstimates(from: CLLocationCoordinate2D(), to: CLLocationCoordinate2D()) { result in
+            let cost = result.value?.first { $0.rideKind == .Plus }
             XCTAssertEqual(cost?.displayName, "Lyft Plus")
             XCTAssertEqual(cost?.primeTimePercentageText, "25%")
             XCTAssertEqual(cost?.estimate?.distanceMiles, 3.29)

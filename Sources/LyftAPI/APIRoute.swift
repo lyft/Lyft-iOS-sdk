@@ -8,7 +8,7 @@ import Foundation
 /// - nearbyDrivers:    Determine the location of drivers near a location
 enum APIRoute {
     /// Base API URL to create requests from
-    static var baseURL = URL(string: "https://api.lyft.com")!
+    static var baseURL = URL(staticString: "https://api.lyft.com")
 
     case eta
     case rideTypes
@@ -17,25 +17,25 @@ enum APIRoute {
 }
 
 extension APIRoute: Routable {
-
     /// The URL string of the combined URL
     var url: URL {
         let path: String = {
             switch self {
-                case .eta:
-                    return "/v1/eta"
+            case .eta:
+                return "/v1/eta"
 
-                case .rideTypes:
-                    return "/v1/ridetypes"
+            case .rideTypes:
+                return "/v1/ridetypes"
 
-                case .costEstimates:
-                    return "/v1/cost"
+            case .costEstimates:
+                return "/v1/cost"
 
-                case .nearbyDrivers:
-                    return "/v1/drivers"
+            case .nearbyDrivers:
+                return "/v1/drivers"
             }
         }()
 
+        // swiftlint:disable:next force_unwrapping
         return URL(string: path, relativeTo: APIRoute.baseURL)!
     }
 
