@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.source          = { :git => 'https://github.com/lyft/lyft-iOS-sdk.git', :tag => s.version.to_s }
   s.default_subspec = 'Core'
   s.ios.deployment_target = '8.0'
+  s.swift_version   = '5.0'
 
   s.subspec 'Core' do |core|
     core.source_files    = 'Sources/**/*.swift'
